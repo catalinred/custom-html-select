@@ -1,0 +1,125 @@
+/*
+B.E.M Naming convention:
+
+(Block) .custom-dropdown
+The main component
+
+(Element) .custom-dropdown__select
+Descendant of .custom-dropdown
+
+(Modifier) .custom-dropdown--*
+Different state of .custom-dropdown
+*/
+
+@mixin caret($color) {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 129 129' fill='#{$color}'><path d='M121.3 34.6c-1.6-1.6-4.2-1.6-5.8 0l-51 51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8 0-1.6 1.6-1.6 4.2 0 5.8l53.9 53.9c.8.8 1.8 1.2 2.9 1.2 1 0 2.1-.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2.1-5.8z'/></svg>");
+}
+
+$baseColor: rgba(0, 0, 0, .9);
+$disabledColor: rgba(0, 0, 0, .3);
+
+.custom-dropdown {
+  display: inline-block;
+  vertical-align: middle;
+
+  &--xl {
+    font-size: 2em;
+  }
+
+  &--lg {
+    font-size: 1.5em;
+  }
+
+  &--sm {
+    font-size: .7em;
+  }
+
+  &__select {
+    font-size: inherit; /* inherit size from .custom-dropdown parent */
+    padding: .5em;
+    border-radius: 3px;
+    background: none;
+    color: $baseColor;
+    border: 1px solid;  
+  }
+}
+  
+@supports (pointer-events: none) and
+          ((-webkit-appearance: none) or 
+          (-moz-appearance: none) or 
+          (appearance: none)) {
+  
+  .custom-dropdown {
+    position: relative;
+
+    &__select {
+      padding-right: 2.5em; /* accommodate with the pseudo elements for the dropdown arrow */				
+      -webkit-appearance: none;
+          -moz-appearance: none;
+              appearance: none;    
+    } 
+    
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+
+    &::before {
+      width: 2em;
+      right: 0; 
+      top: .5em; 
+      bottom: .5em;
+      border-left: 1px solid $baseColor;
+    }    
+
+    &::after {
+      content: "";
+      @include caret($baseColor);
+
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 1em;
+      width: 2em;
+      right: 0;
+      top: 50%; 
+      margin-top: -.5em;
+    }
+  }
+  
+  // Disabled stuff
+
+  .custom-dropdown__select[disabled] {
+    color: $disabledColor;
+  }
+
+  .custom-dropdown.custom-dropdown--disabled::before {
+   border-color: $disabledColor;
+  }	
+  
+  .custom-dropdown.custom-dropdown--disabled::after {
+    @include caret($disabledColor);
+  }		
+  
+  // Active, hover stuff
+  .custom-dropdown:focus-within::after,
+  .custom-dropdown:hover::after {
+    transform: scale(1.2)
+  }
+}
+
+// Demo
+
+html {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(rgba(135, 60, 255, .5), rgba(135, 60, 255, .2) 70%),
+              linear-gradient(-45deg, rgba(103, 140, 245, 0.8) 25%, rgba(255, 211, 65, 0.8) 75%);
+}
+
+.custom-dropdown {
+  margin: .5em 0;
+}

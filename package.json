@@ -1,0 +1,21 @@
+{
+  "name": "custom-html-select",
+  "version": "1.0.0",
+  "description": "Custom HTML select dropdown",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catalinred/custom-html-select.git"
+  },
+  "author": "Catalin Rosu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/catalinred/custom-html-select/issues"
+  },
+  "homepage": "https://github.com/catalinred/custom-html-select#readme",
+  "scripts": {
+    "scss": "node-sass -o css style.scss --output-style compressed --watch --source-map-embed false",
+  },
+  "dependencies": {
+    "node-sass": "^4.9.0"
+  }
+}

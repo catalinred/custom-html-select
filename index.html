@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Custom HTML select</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <label class="custom-dropdown custom-dropdown--xl">
+    <select class="custom-dropdown__select">
+      <option>The Shawshank Redemption</option>
+      <option>The Godfather</option>
+      <option>Pulp Fiction</option>
+      <option>The Good, the Bad and the Ugly</option>
+      <option>12 Angry Men</option>
+    </select>
+  </label>
+  <br>  
+  <label class="custom-dropdown custom-dropdown--lg">
+    <select class="custom-dropdown__select">
+      <option>The Shawshank Redemption</option>
+      <option>The Godfather</option>
+      <option>Pulp Fiction</option>
+      <option>The Good, the Bad and the Ugly</option>
+      <option>12 Angry Men</option>
+    </select>
+  </label>
+  <br>
+  <label class="custom-dropdown">
+    <select class="custom-dropdown__select">
+      <option>The Shawshank Redemption</option>
+      <option>The Godfather</option>
+      <option>Pulp Fiction</option>
+      <option>The Good, the Bad and the Ugly</option>
+      <option>12 Angry Men</option>
+    </select>
+  </label>
+  <br>
+  <label class="custom-dropdown custom-dropdown--sm">
+    <select class="custom-dropdown__select">
+      <option>The Shawshank Redemption</option>
+      <option>The Godfather</option>
+      <option>Pulp Fiction</option>
+      <option>The Good, the Bad and the Ugly</option>
+      <option>12 Angry Men</option>
+    </select>
+  </label>
+  <br><br>
+  <label class="custom-dropdown custom-dropdown--xl">
+    <select class="custom-dropdown__select" disabled>
+      <option>The Shawshank Redemption</option>
+      <option>The Godfather</option>
+      <option>Pulp Fiction</option>
+      <option>The Good, the Bad and the Ugly</option>
+      <option>12 Angry Men</option>
+    </select>
+  </label>
+  <br>  
+  <label class="custom-dropdown custom-dropdown--lg">
+    <select class="custom-dropdown__select" disabled>
+      <option>The Shawshank Redemption</option>
+      <option>The Godfather</option>
+      <option>Pulp Fiction</option>
+      <option>The Good, the Bad and the Ugly</option>
+      <option>12 Angry Men</option>
+    </select>
+  </label>
+  <br>
+  <label class="custom-dropdown">
+    <select class="custom-dropdown__select" disabled>
+      <option>The Shawshank Redemption</option>
+      <option>The Godfather</option>
+      <option>Pulp Fiction</option>
+      <option>The Good, the Bad and the Ugly</option>
+      <option>12 Angry Men</option>
+    </select>
+  </label>
+  <br>
+  <label class="custom-dropdown custom-dropdown--sm">
+    <select class="custom-dropdown__select" disabled>
+      <option>The Shawshank Redemption</option>
+      <option>The Godfather</option>
+      <option>Pulp Fiction</option>
+      <option>The Good, the Bad and the Ugly</option>
+      <option>12 Angry Men</option>
+    </select>
+  </label>
+</body>
+
+<script>
+  (()=>{
+    let customSelects = document.querySelectorAll(".custom-dropdown__select");
+    [...customSelects].map(el => {
+      if (el.hasAttribute("disabled")) {
+        el.parentNode.classList.add("custom-dropdown--disabled")
+      }
+    })   
+  })()
+</script>
+</html>
