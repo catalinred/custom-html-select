@@ -102,9 +102,8 @@ $disabledColor: rgba(0, 0, 0, .3);
     @include caret($disabledColor);
   }		
   
-  // Active, hover stuff
-  .custom-dropdown:focus-within::after,
-  .custom-dropdown:hover::after {
+  // Active
+  .custom-dropdown:focus-within::after {
     transform: scale(1.2)
   }
 }
